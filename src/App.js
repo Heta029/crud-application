@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Layout from './Components/Layout/Layout'
+import CRUDApp from './Containers/CRUDApp/CRUDApp';
+import classes from '../src/Components/Navigation/Toolbar/Toolbar.css';
+import React,{Component} from 'react';
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import Login from '../src/Components/Login/Login';
+import navClasses from '../src/Components/Navigation/NavigationItem.css';
+import {getUser} from '../src/Utils/Common';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render(){
+    const user =getUser();
+    return(    
+        <Layout>
+        <BrowserRouter>
+        <div>
+          <header className={classes.Toolbar}>
+            <span>
+            <NavLink activeClassName="active" to="/" className={navClasses.NavigationItemancor}>Login</NavLink>
+            <NavLink activeClassName="active" to="/CRUDApp" className={navClasses.NavigationItemancor}>CRUDApp</NavLink>        
+            </span>
+          </header>
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Login} />
+              {
+                user!=null?<Route path="/CRUDApp" component={CRUDApp} />:<Route path="/CRUDApp" component={Login} />
+              }
+              
+            </Switch>
+          </div>
+        </div>
+        </BrowserRouter>
+        </Layout>     
+    );
+  }
 }
 
 export default App;
+

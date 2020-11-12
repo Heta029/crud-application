@@ -1,0 +1,11 @@
+.Close{
+    border:1px solid black;
+    color:black;
+    background-color: white;
+    margin-left: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 4px;
+    top:2px;
+    cursor: pointer;
+}
