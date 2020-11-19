@@ -1,0 +1,13 @@
+.columnName {
+    color:green;
+    cursor: pointer;
+    
+}
+.columnName:hover{
+    color:crimson;
+}
+.container{
+    border:1px solid gray;
+    color: crimson;
+    background-color: rgb(240, 239, 239);
+}

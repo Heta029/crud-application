@@ -2,6 +2,7 @@ import axios from 'axios';
 import { setUserSession } from '../../Utils/Common';
 import React, { useState } from 'react';
 import classes from './Login.css';
+
  
 function Login(props) {
     const username = useFormInput('');
@@ -26,14 +27,7 @@ function Login(props) {
           setError("Please enter correct username and password");         
         }               
     }
-    const changePassword =()=>{
-      
-                
-    }
-
-    const submitPassword=()=>{
-      
-    }
+    
   return (
     <div className={classes.container}>
       <label><strong>Login</strong></label><br /><br />
